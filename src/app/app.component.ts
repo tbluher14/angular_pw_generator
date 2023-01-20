@@ -17,10 +17,31 @@ export class AppComponent {
   length = 0
 
   onButtonClick(){
-    this.password = 'dis my pathword';
+    const numbers = '1234567890'
+    const letters = 'abcdefghijklmnopqrstuvwyz'
+    const symbols = '!@#$%^&*()'
+
+    let validChars = ''
+    if (this.includeLetters){
+      validChars += letters
+    }
+    if (this.includeNumbers){
+      validChars+= numbers
+    }
+    if (this.includeSymbols){
+      validChars+= symbols
+    }
+
+    let generatedPassword = ''
+    for (let i = 0; i<this.length; i++){
+      const index = Math.floor(Math.random() * validChars.length)
+      generatedPassword += validChars[index]
+    }
+
   }
 
-  onChangeLength(value: string){
+  onChangeLength(target: EventTarget){
+    const value = (<HTMLInputElement>target).value;
     const parsedValue = parseInt(value)
     if (!isNaN(parsedValue)){
       this.length = parsedValue;
