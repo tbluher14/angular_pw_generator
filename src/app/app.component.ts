@@ -37,7 +37,7 @@ export class AppComponent {
       const index = Math.floor(Math.random() * validChars.length)
       generatedPassword += validChars[index]
     }
-
+    this.password = generatedPassword
   }
 
   onChangeLength(target: EventTarget){
