@@ -14,10 +14,17 @@ export class AppComponent {
   includeLetters = false;
   includeNumbers = false;
   includeSymbols = false;
+  length = 0
 
   onButtonClick(){
     this.password = 'dis my pathword';
-    console.log(this.includeLetters)
+  }
+
+  onChangeLength(value: string){
+    const parsedValue = parseInt(value)
+    if (!isNaN(parsedValue)){
+      this.length = parsedValue;
+    }
   }
 
   onChangeUseLetters(){
