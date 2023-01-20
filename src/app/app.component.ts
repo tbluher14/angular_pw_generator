@@ -13,6 +13,7 @@ export class AppComponent {
   //   this.password = '';
   // }
 
+  
   onButtonClick(){
     this.password = 'dis my pathword';
   }
